@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  pis-gateway:
+    container_name: pis-gateway
+    restart: always
+    build:
+      context: .
+      dockerfile: PIS.Gateway/Dockerfile
+    networks:
+      - shared_network
+    volumes:
+      - ./PIS.Gateway:/App
+
+networks:
+  shared_network:
+    external: true

@@ -1,0 +1,42 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "simple-identity",
+          "Port": 5000
+        }
+      ],
+      "UpstreamPathTemplate": "/identity/{everything}",
+      "UpstreamHttpMethod": [
+        "POST",
+        "GET",
+        "PUT",
+        "DELETE",
+        "OPTIONS"
+      ],
+      "DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "simple-store",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/store/{everything}",
+      "UpstreamHttpMethod": [
+        "POST",
+        "GET",
+        "PUT",
+        "DELETE",
+        "OPTIONS"
+      ],
+      "DangerousAcceptAnyServerCertificateValidator": true
+    }
+  ]
+}

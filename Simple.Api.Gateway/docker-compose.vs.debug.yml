@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  pis-gateway:
+    image: ${DOCKER_REGISTRY:-pis}/gt:${PLATFORM:-linux}-${TAG:-latest}
+    ports:
+      - "9020:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:8080
+      TZ: 'Asia/Tehran'
+      PGTZ: 'Asia/Tehran'
